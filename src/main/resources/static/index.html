@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小狐狸网盘</title>
+    <link rel="icon" href="img/fox.ico">
+    <link rel="shortcut icon" href="img/fox.ico">
+    <link rel="stylesheet" href="script/css/layui.css"/>
+    <link rel="stylesheet" href="script/css/myCss.css"/>
+    <link rel="stylesheet" href="script/css/element.css"/>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="script/layui.js"></script>
+    <script src="script/comm.js"></script>
+    <script src="script/IndexController.js"></script>
+</head>
+<body>
+<div class="top">
+    <a>
+        <img class="icon"
+             id="leftpaneButton"
+             onclick="toggleLeftpane()"
+             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAAMklEQVRYhe3UIRIAIAwDQcr//xw0KEynZlfGnMtawLB6hyRpDVZdzd0ZA374AcAPAOMOSa0MCueDieMAAAAASUVORK5CYII="
+             alt="选项">
+    </a>
+    <div class="top-title">
+        <b>小狐狸网盘</b>
+    </div>
+    <form class="top-nav">
+        <label>
+            <img src="https://img.icons8.com/windows/32/ffffff/search.png">
+            <input type="text" class="search">
+        </label>
+    </form>
+
+    <div class="top-label">
+        当前路径：
+    </div>
+
+    <div class="top-function">
+        <ul>
+            <li>
+                <a onclick="toggleUploadBarStatus()">
+                    <img src="https://img.icons8.com/windows/32/ffffff/upload-2.png">
+                </a>
+            </li>
+            <li>
+                <a>
+                    <img src="https://img.icons8.com/windows/32/ffffff/settings.png" alt="设置">
+                </a>
+            </li>
+            <li><a>
+                <img src="https://img.icons8.com/windows/32/ffffff/refresh.png">
+            </a></li>
+            <li>
+                <a onclick="toggleCommBarStatus()">
+                    <img src="https://img.icons8.com/windows/32/ffffff/contacts.png">
+                </a>
+            </li>
+            <li>
+                <a onclick="closeMainpanel()">
+                    <img src="https://img.icons8.com/windows/32/ffffff/home.png">
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="connection" id="commBar">
+
+    </div>
+    <div class="uploadBar" id="uploadBar">
+
+    </div>
+</div>
+<div class="body clearfix">
+    <div class="body-leftpane" id="leftpane">
+        <div class="tree" id="fileTree"></div>
+    </div>
+    <div class="body-filelist" >
+        <ul id="filelist">
+            <li><img src="https://img.icons8.com/windows/32/000000/folder-invoices.png"> 文件夹</li>
+        </ul>
+    </div>
+    <div class="body-mainpanel" id="mainpanel">
+        <div class="layui-carousel" id="carousel">
+            <div carousel-item >
+                <div>条目1</div>
+            </div>
+        </div>
+
+        <div class="foot">
+            <a href="">联系作者<img style="height: 25px;width: 25px"
+                                src="https://img.icons8.com/ios-filled/32/000000/weixing.png"></a>
+            <a href="">    github</a><img
+                src="https://img.icons8.com/material-rounded/26/000000/github.png">
+            <br>© 2019 <a href="">ncepu.cie.org</a> GNU license
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

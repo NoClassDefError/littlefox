@@ -1,0 +1,177 @@
+/*全局设定*/
+body {
+    background: url("../../img/Nick.jpg") no-repeat fixed center top;
+    background-size: cover;
+    /*默认背景盖住margin*/
+    margin: 0;
+    /*背景附着分为 fixed 与scroll*/
+}
+
+/*清除浮动专用*/
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {
+    *zoom: 1; /* IE6、7 专有 */
+}
+
+/*顶栏*/
+.top-nav {
+    display: block;
+    height: 40px;
+    margin: 0;
+    position: absolute;
+    left: 320px;
+    top: 4px;
+}
+
+.top {
+    width: 100%;
+    /*重要！注意100%与auto的区别 100%是占满父级盒子，此处body默认具有margin，必须先消除*/
+    height: 40px;
+    position: fixed;
+    top: 0;
+    background-color: #f96524;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+}
+
+.top a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    margin: 0;
+    font-size: xx-large;
+    color: #FFFFFF;
+    cursor: default;
+}
+
+.top a:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.top-title {
+    position: absolute;
+    left: 86px;
+    top: 3px;
+    font-size: 26px;
+    font-family: "Microsoft JhengHei UI", "Microsoft YaHei UI", serif;
+    color: #FFFFFF;
+}
+
+.top-function {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.top ul {
+    display: block;
+    overflow: hidden;
+    list-style-type: none;
+    margin: 0;
+}
+
+.top li {
+    float: left;
+    margin: 0 15px;
+}
+
+.top-label{
+    position: absolute;
+    overflow: hidden;
+    height: 40px;
+    width: 400px;
+    line-height: 40px;
+    font-family: "Microsoft YaHei UI", "Microsoft JhengHei UI", "sans-serif";
+    color: #FFFFFF;
+    top: 0;
+    right: 470px;
+}
+
+/*主体*/
+.body {
+    display: flex;
+    margin-top: 40px;
+    /*设置height后实在占不满就使用这种方法*/
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    /*grid-template: 100% / 300px 1fr;*/
+    /*overflow: hidden;*/
+
+    /*上外边距为40px，以防止被top栏遮挡*/
+}
+
+/*左面板要使用fixed定位*/
+.body-leftpane {
+
+    width: 300px;
+    overflow: auto;
+    background-color: rgba(122, 55, 27, 0.5);
+    margin: 0;
+}
+
+.body-filelist {
+    width: 350px;
+    background-color: #FFFFFF;
+    overflow: auto;
+}
+
+.body-filelist ul {
+    padding: 0;
+    margin: 0;
+}
+
+.body-filelist li {
+    height: 70px;
+    line-height: 70px;
+    display: block;
+    border-bottom-style: solid;
+    border-bottom-color: #898989;
+    font-family: "Microsoft YaHei UI", "Microsoft JhengHei UI", "sans-serif";
+    font-size: 18px;
+    padding-left: 20px;
+    cursor: default;
+}
+
+.body-filelist li:hover{
+    background-color: #cccccc;
+}
+
+.body-filelist img {
+    position: relative;
+    top: 0px;
+}
+
+.body-mainpanel {
+    display: none;
+    flex-grow: 1;
+    /*width: 100%;*/
+    background: rgba(106, 183, 103, 0.5);
+    margin: 0;
+    position: relative;
+}
+
+.foot {
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    /* css宽度自适应问题：
+    未设置左右边距的情况下自动占满父盒子的宽度*/
+    background-color: rgba(240, 240, 240, 0.8);
+    font-size: medium;
+    font-family: "Microsoft JhengHei UI", "serif";
+	text-align: center;
+	color: black;
+
+}

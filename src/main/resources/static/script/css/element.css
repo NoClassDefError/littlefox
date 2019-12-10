@@ -1,0 +1,106 @@
+/*轮播图scrollpane组件*/
+
+.scrollpane {
+    position: relative;
+}
+
+.scrollpane-button:hover {
+    background-color: rgba(170, 170, 170, 0.5);
+}
+
+.scrollpane-button-left {
+    left: 0;
+}
+
+.scrollpane-button-right {
+
+    right: 0;
+}
+
+.scrollpane-button {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 41%;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    font-size: xx-large;
+    color: #FFFFFF;
+	cursor: default;
+}
+
+.scrollpane-son {
+    width: 253px;
+    height: 253px;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 1%;
+    background-color: rgba(240, 240, 240, 0.8);
+    float: left;
+    border-radius: 3px;
+}
+
+.scrollpane-son:hover {
+    background-color: #FFFFFF;
+}
+
+
+/*图标*/
+.top img{
+    width: 30px;
+    height: 28px;
+    position: relative;
+    top:-1px;
+    left: 0;
+}
+/*文本框*/
+.search{
+    outline-style: none;
+    border: 1px solid #f96524;
+    /*border-radius: 3px;*/
+    padding: 5px 5px;
+    width: 250px;
+    font-size: 18px;
+    font-family: "Microsoft YaHei UI", "Microsoft JhengHei UI", "sans-serif";
+    background-color: #fffade;
+    position: relative;
+    bottom: 1px;
+}
+/*树形组件*/
+* > .tree{
+    font-size: 18px;
+    font-family: "Microsoft YaHei UI", "Microsoft JhengHei UI", "sans-serif";
+}
+.layui-tree{
+    line-height: 27px;
+/*    貌似并没有起左右*/
+}
+.layui-tree-txt{
+    color: #FFFFFF;
+}
+
+/*连接状态栏*/
+.connection{
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 42px;
+    right: 40px;
+    width: 300px;
+    height: 300px;
+    display: none;
+}
+
+/*上传状态栏*/
+.uploadBar{
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 42px;
+    right: 200px;
+    width: 500px;
+    height: 500px;
+    display: none;
+}
