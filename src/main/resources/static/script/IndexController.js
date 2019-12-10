@@ -1,6 +1,7 @@
+var images = [];
 //tree
 //当前目录
-layui.use('tree', function treeFunction() {
+layui.use(['tree', 'carousel'], function treeFunction() {
     var currentDirectory = "/";
     var getFiles = "http://localhost:8888/littlefox/getFiles";
 
@@ -30,6 +31,7 @@ layui.use('tree', function treeFunction() {
     var treeData = getTreeData(getFiles, currentDirectory);
     refresh();
     refreshList(treeData);
+
     function refresh() {
         // console.log(treeData);
         layui.tree.render({
@@ -52,29 +54,55 @@ layui.use('tree', function treeFunction() {
         });
     }
 
-    function refreshList(children){
+    function refreshList(children) {
+        console.log(children);
         //更新列表  fileListBar
         var list = document.getElementById('filelist');
         while (list.firstChild) {
             list.removeChild(list.firstChild);
         }
-        console.log(children);
-        for (var file in children) {
+        for (var i = 0; i < children.length; i++) {
             var li = document.createElement("li");
             var img = document.createElement("img");
-            console.log(file);
+            var a = document.createElement("a");
+            var file = children[i];
+            // console.log(file);
             if (file.type === "directory")//文件夹
                 img.src = "https://img.icons8.com/windows/32/000000/folder-invoices.png";
-            else if (file.type.indexOf("image") !== -1 || file.type.indexOf("video") !== -1)//图片
+            else if (file.type.indexOf("image") !== -1) {
+                if ($.inArray(images, file))
+                    images.push(file);
                 img.src = "https://img.icons8.com/windows/32/000000/image-file.png";
+                a.click = openMainpanel(this);
+            }//图片
             else if (file.type.indexOf("text") !== -1)//文本文档
                 img.src = "https://img.icons8.com/windows/32/000000/document.png";
             else //文件
                 img.src = "https://img.icons8.com/windows/32/000000/file.png";
             li.appendChild(img);
-            li.innerText(file.title + "  " + file.type + " " + file.size);
+            file.type = file.type.substring(0, file.type.indexOf("/"));
+            var s = file.title;
+            // console.log(file.type);
+            if (file.type !== "")
+                s = s + "\ntype:" + file.type;
+            if (file.size !== undefined)
+                s = s + "\nsize:" + file.size + "bytes";
+            // console.log(s);
+            a.innerText = s;
+
+            a.file = file;
+            li.appendChild(a);
             list.appendChild(li);
         }
+        var carousel = layui.carousel;
+        //建造实例
+        carousel.render({
+            elem: '#carousel'
+            , width: '100%' //设置容器宽度
+            , arrow: 'hover' //始终显示箭头
+            , autoplay: false
+        });
+        // console.log(children);
     }
 });
 
@@ -123,27 +151,18 @@ function toggleUploadBarStatus() {
     uploadBarStatus = !uploadBarStatus;
 }
 
-//img carousel
-imgs = [{name: '', url: ''}];
-layui.use('carousel', function () {
-    var carousel = layui.carousel;
-    //建造实例
-    carousel.render({
-        elem: '#carousel'
-        , width: '100%' //设置容器宽度
-        , arrow: 'hover' //始终显示箭头
-        , autoplay: false
-    });
-    //图像标签的生成 一次加载五张，浏览到最后，向服务器发送传输请求
-    //监听轮播切换事件
-    carousel.on('change(carousel)', function (obj) {
-        console.log(obj.index + " " + carousel.length); //当前条目的索引
-        if (obj.index === carousel.length) {
+//open viewer
+function openMainpanel(element) {
+    // if (element.file.type === "image") {
+    console.log();
+    var item = document.getElementById('item');
+    for (var i = 0; i < images.length; i++) {
+        var img = document.createElement('img');
+        img.src = images[i].field;
+        item.appendChild(img);
+    }
+    document.getElementById('mainpanel').style.display = 'block';
+}
 
-        } else if (obj.index === 0) {
-
-        }
-    });
-});
 
 //video

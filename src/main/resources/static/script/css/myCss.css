@@ -92,7 +92,7 @@ body {
     font-family: "Microsoft YaHei UI", "Microsoft JhengHei UI", "sans-serif";
     color: #FFFFFF;
     top: 0;
-    right: 470px;
+    right: 25%;
 }
 
 /*主体*/
@@ -133,7 +133,7 @@ body {
 
 .body-filelist li {
     height: 70px;
-    line-height: 70px;
+    /*line-height: 70px;*/
     display: block;
     border-bottom-style: solid;
     border-bottom-color: #898989;
@@ -141,6 +141,7 @@ body {
     font-size: 18px;
     padding-left: 20px;
     cursor: default;
+    overflow-x: auto;
 }
 
 .body-filelist li:hover{
@@ -160,7 +161,9 @@ body {
     margin: 0;
     position: relative;
 }
-
+.layui-carousel{
+    height: auto;
+}
 .foot {
     position: absolute;
     bottom: 0;

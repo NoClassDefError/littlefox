@@ -9,7 +9,7 @@ public class FileVo {
     public ArrayList<FileVo> children = new ArrayList<>();
     public String title;
     public String field;
-    public Boolean spread = true;
+    public Boolean spread = false;
     public String canonicalPath;
     public String type;
     public String size;
@@ -25,7 +25,7 @@ public class FileVo {
     public FileVo(File file, String root, int level, String contextPath) {
         String s1 = file.getAbsolutePath();
         canonicalPath = (s1.substring(s1.length() - s1.compareTo(root))).replace(File.separator, "/");
-        field = contextPath + canonicalPath.replace(File.separator, "/");
+        field = contextPath +"/"+ canonicalPath.replace(File.separator, "/");
 //        url = s1.substring(0, s1.length() - s1.compareTo(root));
         title = file.getName();
         type = file.isDirectory() ? "directory" : new MimetypesFileTypeMap().getContentType(file);
