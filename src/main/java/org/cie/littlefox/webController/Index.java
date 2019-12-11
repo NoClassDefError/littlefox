@@ -3,6 +3,7 @@ package org.cie.littlefox.webController;
 import com.alibaba.fastjson.JSON;
 import org.cie.littlefox.util.MyProperties;
 import org.cie.littlefox.vo.FileVo;
+import org.cie.littlefox.vo.UserQuery;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +41,11 @@ public class Index {
                 + request.getServletContext().getContextPath();
         FileVo filevo = new FileVo(file, root, 0, url);
         return JSON.toJSON(filevo).toString();
+    }
+
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    public String login(UserQuery query){
+
+        return null;
     }
 }
