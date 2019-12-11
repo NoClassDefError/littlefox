@@ -1,5 +1,9 @@
 package org.cie.littlefox.vo;
 
-public class UserQuery {
+import lombok.Data;
 
+@Data
+public class UserQuery {
+    private String username;
+    private String password;
 }
